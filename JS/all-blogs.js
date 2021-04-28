@@ -1,11 +1,9 @@
 const contentToPage = document.querySelector(".container") 
 const url = `https://nikolaireedlarsen.no//wp-json/wp/v2/posts?_embed=true`
+document.title = "Exam | Nikolai"
 
 fetch(url, {
-    "method": "GET",
-
-
-    
+    "method": "GET",  
 })
 .then(response => response.json())
 .then(data => standardTemplate(data)) 
