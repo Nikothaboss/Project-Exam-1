@@ -20,7 +20,7 @@ const standardTemplate=(posts)=>{
         console.log(post);
         let media = post._embedded["wp:featuredmedia"];
         for(imgDetails of media){
-            console.log(imgDetails.source_url)
+            console.log(imgDetails)
             newDiv +=`
                 <img src="${imgDetails.source_url}" >
                 <h3>${post.title.rendered}</h3>
