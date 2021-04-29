@@ -5,7 +5,7 @@ console.log(id);
 
 const url = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts/${id}?_embed=true`;
 
-const contentToPage = document.querySelector(".container");
+const contentToPage = document.querySelector(".single-blog-container");
 
 fetch(url, {
     "method": "GET",  
@@ -24,7 +24,7 @@ const singleBlogTemplate =(blog)=>{
     for(image of images){
     console.log(image.media_details.sizes.medium.source_url)    
     newDiv += `
-        <img src="${image.media_details.sizes.medium_large.source_url}"
+        <img src="${image.media_details.sizes.medium.source_url}" alt="${image.alt_text}>
         ${blog.content.rendered}
     `
     }

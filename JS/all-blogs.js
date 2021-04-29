@@ -1,5 +1,5 @@
 const contentToPage = document.querySelector(".container") 
-const url = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts?_embed=true`
+const url = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts?_embed=true&per_page=100`
 document.title = "Exam | Nikolai"
 
 fetch(url, {
@@ -18,11 +18,13 @@ const standardTemplate=(posts)=>{
         console.log(post);
         let media = post._embedded["wp:featuredmedia"];
         for(imgDetails of media){
-            console.log(imgDetails.media_details.sizes.medium)
+            
             newDiv +=`
-                <h3>${post.title.rendered}</h3>
-                <a href="single-blog.html?id=${post.id}"><img src="${imgDetails.media_details.sizes.medium.source_url}"></a>
-                
+                <div class="card ${post.slug}">
+                    <h3>${post.title.rendered}</h3>
+                    <a href="single-blog.html?id=${post.id}"><img src="${imgDetails.media_details.sizes.medium.source_url}" alt="${imgDetails.alt_text}"></a>
+                    ${imgDetails.caption.rendered}
+                </div>
             `
             contentToPage.innerHTML += newDiv;
         }

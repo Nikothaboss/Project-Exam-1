@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+}
+
+.card img {
+  width: 300px;
+}
