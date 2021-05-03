@@ -24,8 +24,11 @@ const singleBlogTemplate =(blog)=>{
     for(image of images){
     console.log(image.media_details.sizes.medium.source_url)    
     newDiv += `
-        <img src="${image.media_details.sizes.medium.source_url}" alt="${image.alt_text}>
-        ${blog.content.rendered}
+        <div class="img-container">
+            <h1>${blog.title.rendered}</h1>
+            <img src="${image.source_url}" alt="${image.alt_text}" class="single-post-img single-post-img-${blog.slug}">
+        </div>
+        <div class="content content-${blog.slug}">${blog.content.rendered}</div>
     `
     }
 

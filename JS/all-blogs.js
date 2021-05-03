@@ -21,9 +21,11 @@ const standardTemplate=(posts)=>{
             
             newDiv +=`
                 <div class="card ${post.slug}">
-                    <h3>${post.title.rendered}</h3>
-                    <a href="single-blog.html?id=${post.id}"><img src="${imgDetails.media_details.sizes.medium.source_url}" alt="${imgDetails.alt_text}"></a>
-                    ${imgDetails.caption.rendered}
+                    <div class="image-container"><a href="single-blog.html?id=${post.id}"><img src="${imgDetails.source_url}" alt="${imgDetails.alt_text}" class"slide-pic"></a></div>
+                    <div class="card-info">
+                        <h2>${post.title.rendered}</h2>
+                        ${imgDetails.caption.rendered}
+                    </div>
                 </div>
             `
             contentToPage.innerHTML += newDiv;
