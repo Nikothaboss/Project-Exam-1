@@ -3,10 +3,11 @@
 /*. font-family: 'Poppins', sans-serif;  */
 
 body {
-  height: 100vh;
+  height: 100%;
   display: flex;
   font-family: poppins, sans-serif;
   background: linear-gradient(0deg, #03030c 5%, #292930 50%);
+  background-repeat: no-repeat;
 }
 
 h1 {
@@ -26,19 +27,19 @@ h2 {
 
 .card {
   position: relative;
-  width: 360px;
-  height: 480px;
+  width: 260px;
+  height: 380px;
   padding: 20px;
   z-index: 1;
 }
 
 .card img {
   object-fit: cover;
-  width: 360px;
-  height: 480px;
+  width: 260px;
+  height: 380px;
   border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: -5px -5px 30px 5px rgba(22, 7, 135, 0.743),
+    5px 5px 30px 5px rgb(85, 5, 5);
 }
 
 .image-container ::before {
@@ -46,12 +47,12 @@ h2 {
   background: rgba(34, 48, 73, 0.75);
   background: linear-gradient(
     0deg,
-    rgb(17, 22, 29) 2%,
-    rgba(41, 50, 60, 0.301) 45%,
-    rgba(41, 50, 60, 0.089) 100%
+    rgba(17, 22, 29, 0.924) 20%,
+    rgba(41, 50, 60, 0.623) 35%,
+    rgba(41, 50, 60, 0) 70%
   );
-  width: 360px;
-  height: 480px;
+  width: 260px;
+  height: 380px;
   position: absolute;
   bottom: 3.8%;
   padding: 0;
@@ -62,7 +63,7 @@ h2 {
 .card-info {
   position: absolute;
   bottom: 5%;
-  font-size: 1rem;
+  font-size: 14px;
   width: 80%;
   overflow: hidden;
   height: 35%;
@@ -74,27 +75,37 @@ h2 {
 }
 
 .card-info p {
+  font-size: 14px;
   height: 125px;
   overflow: hidden;
+}
+
+.card-info h2 {
+  font-size: 18px;
+  font-weight: 800;
+  text-decoration: underline;
 }
 
 /* ! single-blog.html */
 .single-blog-container {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-end;
+  color: white;
+  position: relative;
 }
 
 .img-container {
   width: 30vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: flex-start; */
+  /* align-items: center; */
   position: sticky;
-  left: 0;
-  height: 100%;
+  top: 0;
+  position: -webkit-sticky;
+  /* height: 100%; */
   padding-left: 100px;
   padding-right: 100px;
   margin-right: 50px;
@@ -108,6 +119,8 @@ h2 {
 
 .content {
   width: 50%;
-  max-height: 60vh;
+  margin: auto 0 auto 0;
   padding-right: 50px;
+  font-size: 14px;
+  color: white;
 }
