@@ -1,4 +1,5 @@
-const contentToPage = document.querySelector(".container") 
+const contentToPage = document.querySelector(".carousel-container") 
+
 const url = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts?_embed=true&per_page=100`
 document.title = "Exam | Nikolai"
 
@@ -33,4 +34,39 @@ const standardTemplate=(posts)=>{
         
     }
 
+    
+    
+
 }
+
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
+let counter = 0;
+const size = (260 + 40) * 4;
+
+
+contentToPage.children = "red"
+
+nextBtn.addEventListener("click", () =>{
+    counter ++ ; 
+    contentToPage.style.transform = "translateX(" + (-size * counter) + "px)";
+    if(counter >= 3) {
+        counter = 0
+        contentToPage.style.transform = "translateX(0px)";
+    }
+    console.log( counter)
+})
+
+prevBtn.addEventListener("click", () =>{
+    counter -- ; 
+    contentToPage.style.transform = "translateX(" + (size * counter) + "px)";
+    if(counter <= 0) {
+        counter = 0
+        contentToPage.style.transform = "translateX(0px)";
+    }
+    console.log( counter)
+})
+
+
+
