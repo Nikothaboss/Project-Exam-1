@@ -146,3 +146,21 @@ h2 {
   font-size: 14px;
   color: white;
 }
+
+@media(max-width: 1215px){
+  .container{
+    width: 900px;
+  }
+}
+
+@media(max-width: 925px){
+  .container{
+    width: 600px;
+  }
+}
+
+@media(max-width: 620px){
+  .container{
+    width: 300px;
+  }
+}

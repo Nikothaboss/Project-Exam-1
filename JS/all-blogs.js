@@ -39,26 +39,31 @@ const standardTemplate=(posts)=>{
 // ! Carousel
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
+const container = document.querySelector(".container")
 
 let counter = 0;
-const size = (260 + 40) * 4;
+const size = (260 + 40);
 
 nextBtn.addEventListener("click", () =>{
     counter ++ ; 
     contentToPage.style.transform = "translateX(" + (-size * counter) + "px)";
-    if(counter > 2) {
+    if(counter > 8) {
         counter = 0
         contentToPage.style.transform = "translateX(0px)";
+    }
+    if(container.clientWidth === 900){
+        if(counter > 9) {
+            counter = 0
+            contentToPage.style.transform = "translateX(0px)";
+        }
     }
     console.log( counter)
 })
 
 prevBtn.addEventListener("click", () =>{
+    
     counter -- ; 
-    contentToPage.style.transform = "translateX(" + (size * counter) + "px)";
-    if(counter <= 1) {
-        contentToPage.style.transform = "translateX(" + (-size * counter) + "px)";
-    }
+    contentToPage.style.transform = "translateX(" + (-size * counter)   + "px)";
     if(counter <= 0){
         counter = 0;
         contentToPage.style.transform = "translateX(0px)";
