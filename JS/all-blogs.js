@@ -33,17 +33,14 @@ const standardTemplate=(posts)=>{
         }
         
     }
-
-    
-    
-
 }
 
+
+// ! Carousel
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
 
 let counter = 0;
-let counter2 = 0;
 const size = (260 + 40) * 4;
 
 nextBtn.addEventListener("click", () =>{
