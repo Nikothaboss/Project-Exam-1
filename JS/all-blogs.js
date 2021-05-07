@@ -53,7 +53,7 @@ nextBtn.addEventListener("click", () =>{
         }else if(container.clientWidth === 720 && counter > 10){ 
             counter = 0
             contentToPage.style.transform = "translateX(0px)"
-        }else if(container.clientWidth === 380 && counter > 11){ 
+        }else if(container.clientWidth <= 380 && counter > 11){ 
             counter = 0
             contentToPage.style.transform = "translateX(0px)"
         }
