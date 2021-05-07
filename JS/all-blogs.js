@@ -39,25 +39,25 @@ const nextBtn = document.querySelector(".next");
 const container = document.querySelector(".container")
 
 let counter = 0;
-const size = (260 + 40);
+const size = (260 + 80);
 
 nextBtn.addEventListener("click", () =>{
     counter ++ ; 
     contentToPage.style.transform = "translateX(" + (-size * counter) + "px)";
-        if(container.clientWidth === 1200 && counter > 8){ 
+        if(container.clientWidth === 1403 && counter > 8){ 
             counter = 0
             contentToPage.style.transform = "translateX(0px)"
-        }else if(container.clientWidth === 900 && counter > 9){ 
+        }else if(container.clientWidth === 1060 && counter > 9){ 
             counter = 0
             contentToPage.style.transform = "translateX(0px)"
-        }else if(container.clientWidth === 600 && counter > 10){ 
+        }else if(container.clientWidth === 720 && counter > 10){ 
             counter = 0
             contentToPage.style.transform = "translateX(0px)"
-        }else if(container.clientWidth === 300 && counter > 11){ 
+        }else if(container.clientWidth === 380 && counter > 11){ 
             counter = 0
             contentToPage.style.transform = "translateX(0px)"
         }
-    console.log( counter)
+    console.log( container.clientWidth)
 })
 
 prevBtn.addEventListener("click", () =>{
