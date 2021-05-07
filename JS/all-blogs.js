@@ -13,13 +13,11 @@ fetch(url, {
 }) 
 
 const standardTemplate=(posts)=>{
-    
     for(post of posts){
         let newDiv = ``;
         console.log(post);
         let media = post._embedded["wp:featuredmedia"];
         for(imgDetails of media){
-            
             newDiv +=`
                 <div class="card ${post.slug}">
                     <div class="image-container"><a href="single-blog.html?id=${post.id}"><img src="${imgDetails.source_url}" alt="${imgDetails.alt_text}" class"slide-pic"></a></div>
@@ -30,8 +28,7 @@ const standardTemplate=(posts)=>{
                 </div>
             `
             contentToPage.innerHTML += newDiv;
-        }
-        
+        }  
     }
 }
 
@@ -47,21 +44,23 @@ const size = (260 + 40);
 nextBtn.addEventListener("click", () =>{
     counter ++ ; 
     contentToPage.style.transform = "translateX(" + (-size * counter) + "px)";
-    if(counter > 8) {
-        counter = 0
-        contentToPage.style.transform = "translateX(0px)";
-    }
-    if(container.clientWidth === 900){
-        if(counter > 9) {
+        if(container.clientWidth === 1200 && counter > 8){ 
             counter = 0
-            contentToPage.style.transform = "translateX(0px)";
+            contentToPage.style.transform = "translateX(0px)"
+        }else if(container.clientWidth === 900 && counter > 9){ 
+            counter = 0
+            contentToPage.style.transform = "translateX(0px)"
+        }else if(container.clientWidth === 600 && counter > 10){ 
+            counter = 0
+            contentToPage.style.transform = "translateX(0px)"
+        }else if(container.clientWidth === 300 && counter > 11){ 
+            counter = 0
+            contentToPage.style.transform = "translateX(0px)"
         }
-    }
     console.log( counter)
 })
 
 prevBtn.addEventListener("click", () =>{
-    
     counter -- ; 
     contentToPage.style.transform = "translateX(" + (-size * counter)   + "px)";
     if(counter <= 0){

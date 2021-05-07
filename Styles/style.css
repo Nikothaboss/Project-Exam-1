@@ -35,17 +35,30 @@ h2 {
 }
 
 .next {
+  padding: 20px 15px;
+  background-color: #4646468e;
+  color: white;
   position: absolute;
-  right: 0%;
-  top: 50%;
+  right: 0;
+  top: 40%;
   z-index: 11;
+  margin-left: 30px;
 }
 
 .prev {
+  padding: 20px 15px;
+  background-color: #4646468e;
+  color: white;
   position: absolute;
-  left: 0%;
-  top: 50%;
+  left: 0;
+  top: 40%;
   z-index: 11;
+}
+
+.next:hover,
+.prev:hover {
+  background-color: #464646;
+  transition: 0.3s ease-in-out;
 }
 
 .card {
@@ -147,20 +160,20 @@ h2 {
   color: white;
 }
 
-@media(max-width: 1215px){
-  .container{
+@media (max-width: 1215px) {
+  .container {
     width: 900px;
   }
 }
 
-@media(max-width: 925px){
-  .container{
+@media (max-width: 925px) {
+  .container {
     width: 600px;
   }
 }
 
-@media(max-width: 620px){
-  .container{
+@media (max-width: 620px) {
+  .container {
     width: 300px;
   }
 }
