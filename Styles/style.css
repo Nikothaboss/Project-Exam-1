@@ -2,9 +2,16 @@
 /*. font-family: 'Cinzel', serif;*/
 /*. font-family: 'Poppins', sans-serif;  */
 
+html {
+  position: relative;
+}
+
 body {
   height: 100%;
+
+  margin: auto;
   display: flex;
+  flex-direction: column;
   font-family: poppins, sans-serif;
   background: linear-gradient(0deg, #03030c 5%, #292930 50%);
   background-repeat: no-repeat;
@@ -17,6 +24,56 @@ h1 {
 
 h2 {
   font-family: "Cinzel", serif;
+}
+
+/* ! Header */
+header {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  height: 50vh;
+  background-image: url("/img/kings-landing.jpg");
+  background-position: center;
+}
+
+.header-content {
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 80%;
+  margin: auto;
+  height: 100%;
+}
+
+.logo {
+  height: 10vh;
+}
+
+.navbar {
+  font-size: 1.3rem;
+  height: 80px;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  color: white;
+}
+
+/* ! footer */
+footer {
+  background: #464646;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 130px;
+}
+
+footer h3 {
+  margin-left: 10px;
 }
 
 /* ! index.html */
