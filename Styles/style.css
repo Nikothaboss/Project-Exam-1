@@ -35,6 +35,8 @@ header {
   height: 50vh;
   background-image: url("/img/kings-landing.jpg");
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .header-content {
@@ -90,6 +92,7 @@ footer h3 {
   overflow: hidden;
   position: relative;
   padding-left: 20px;
+  margin: 20px auto;
 }
 
 .next {
