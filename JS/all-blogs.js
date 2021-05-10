@@ -38,16 +38,20 @@ const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
 const container = document.querySelector(".container")
 
-let counter = 0;
+
 const size = (260 + 80);
 const reset = "translateX(0px)" 
+let counter = 0;
+
 
 
 nextBtn.addEventListener("click", () =>{
     counter ++ ; 
-    const moveCarousel = `translateX(${-size * counter}px)`
-    contentToPage.style.transform = moveCarousel;
-        if(container.clientWidth === 1403 && counter > 8){ 
+    contentToPage.style.transform = `translateX(${(-size*counter)}px)`;
+        if(container.clientWidth === 1743 && counter > 7){ 
+            counter = 0
+            contentToPage.style.transform = reset
+        }else if(container.clientWidth === 1400 && counter > 8){ 
             counter = 0
             contentToPage.style.transform = reset
         }else if(container.clientWidth === 1060 && counter > 9){ 
@@ -60,16 +64,18 @@ nextBtn.addEventListener("click", () =>{
             counter = 0
             contentToPage.style.transform = reset
         }
-    console.log( container.clientWidth)
+        
+        
+
+    console.log( counter)
 })
 
 prevBtn.addEventListener("click", () =>{
-    const moveCarousel = `translateX(${-size * counter}px)`
     counter -- ; 
-    contentToPage.style.transform = moveCarousel;
+    contentToPage.style.transform = `translateX(${(-size*counter)}px)`;
     if(counter <= 0){
-        counter = 0;
-        contentToPage.style.transform = reset;
+        counter = 0
+        contentToPage.style.transform = reset
     }
     console.log( counter)
 })

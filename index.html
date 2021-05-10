@@ -21,17 +21,34 @@
     <title>Exam - Nikolai</title>
 </head>
 <body>
+    <div class="kings-landing-bg-img">
+        <div class="dark-fade-bg">
+            <p></p> <!--? Må ha et tomt element for å få ::before til å funke i CSS-->
+        </div>
+        <h1>Welcome To Game Of Blogs</h1>
+        <h2>The Blog of The Seven Kingdoms</h2>
+    </div>
+
     <header>
-        <div class="header-content">
+        <!-- <div class="header-content"> -->
             <img src="./img/logo.png" alt="game of blogs logo" class="logo">
             <ul class="navbar">
-                <li>Home</li>
-                <li>About</li>
-                <li>Posts</li>
-                <li>Contact</li>
+                <a href="index.html">
+                    <li>Home</li>
+                </a><a href="about.html">
+                    <li>About</li>
+                </a><a href="posts.html">
+                    <li>Posts</li>
+                </a><a href="contact.html">
+                    <li>Contact</li>
+                </a>
             </ul>
-        </div>
+        <!-- </div> -->
     </header>
+    <div class="latest-posts">
+        <h2>Latest Posts</h2>
+        <hr>
+    </div>
     <div class="container">
         <div class="carousel-container"></div>
         <a class="prev"><i class="fas fa-chevron-left fa-3x"></i></a>

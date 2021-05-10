@@ -25,10 +25,22 @@ const singleBlogTemplate =(blog)=>{
     console.log(image.media_details.sizes.medium.source_url)    
     newDiv += `
         <div class="img-container">
-            <h1>${blog.title.rendered}</h1>
             <img src="${image.source_url}" alt="${image.alt_text}" class="single-post-img single-post-img-${blog.slug}">
+            <div class="post-info">
+                <div class="author">
+                    <i class="fas fa-user fa-2x"></i>
+                    <p>Author: ${blog._embedded.author[0].name}</p>
+                </div>
+                <div class="posted-time">
+                    <i class="fas fa-clock fa-2x"></i>
+                    <p>Date: ${blog.date}</p>
+                </div>
+            </div>
         </div>
-        <div class="content content-${blog.slug}">${blog.content.rendered}</div>
+        <div class="content content-${blog.slug}">
+        <h1>${blog.title.rendered}</h1>
+        ${blog.content.rendered}
+        </div>
     `
     }
 

@@ -2,13 +2,9 @@
 /*. font-family: 'Cinzel', serif;*/
 /*. font-family: 'Poppins', sans-serif;  */
 
-html {
-  position: relative;
-}
-
 body {
   height: 100%;
-
+  position: relative;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -20,33 +16,70 @@ body {
 h1 {
   font-family: "Cinzel", serif;
   font-size: 3rem;
+  z-index: 999;
 }
 
 h2 {
-  font-family: "Cinzel", serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  z-index: 999;
 }
 
 /* ! Header */
-header {
-  width: 100%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  height: 50vh;
+.kings-landing-bg-img {
   background-image: url("/img/kings-landing.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  width: 100%;
+  height: 60vh;
 }
 
-.header-content {
-  padding-top: 40px;
+header {
+  width: 80%;
+  /* margin: auto; */
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  width: 80%;
-  margin: auto;
-  height: 100%;
+  height: 8vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 999;
+  position: absolute;
+  top: 3%;
+  left: 8%;
+}
+
+.kings-landing-bg-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+
+.dark-fade-bg ::before {
+  content: "";
+  background: rgba(0, 0, 0, 0.356);
+  width: 100%;
+  height: 60vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.dark-fade-bg h1 {
+  z-index: 999;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .logo {
@@ -54,14 +87,18 @@ header {
 }
 
 .navbar {
-  font-size: 1.3rem;
-  height: 80px;
+  font-size: 1.5rem;
   width: 40%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   list-style: none;
   color: white;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
 }
 
 /* ! footer */
@@ -80,6 +117,13 @@ footer h3 {
 
 /* ! index.html */
 
+.latest-posts {
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+  color: white;
+}
+
 .carousel-container {
   display: flex;
   transition: 0.4s ease-in-out;
@@ -87,7 +131,7 @@ footer h3 {
 
 .container {
   display: flex;
-  width: 1383px;
+  width: 1723px;
   margin: auto;
   overflow: hidden;
   position: relative;
@@ -118,7 +162,7 @@ footer h3 {
 
 .next:hover,
 .prev:hover {
-  background-color: #464646;
+  background-color: #2e2e2e;
   transition: 0.3s ease-in-out;
 }
 
@@ -129,14 +173,40 @@ footer h3 {
   padding: 20px;
   z-index: 1;
   margin: 20px;
+  transition: transform 250ms;
 }
+
+.card:hover {
+  transform: translateY(-25px);
+  transition: ease-in-out 0.3s;
+}
+
+/* @keyframes cardHover {
+  from {
+    top: 0px;
+  }
+  to {
+    top: -25px;
+  }
+} */
 
 .card img {
   object-fit: cover;
   width: 260px;
   height: 380px;
   border-radius: 20px;
-  box-shadow: 0px 5px 10px 5px #c5ac72;
+}
+
+.image-container {
+  border-radius: 20px;
+  z-index: 999;
+}
+
+.image-container:hover {
+  box-shadow: 0px 5px 10px 10px #c5ac72;
+  transition: 0.3s ease-in-out;
+  animation: cardHover 0.3s ease-in-out forwards;
+  z-index: 13;
 }
 
 .image-container ::before {
@@ -153,8 +223,13 @@ footer h3 {
   position: absolute;
   bottom: 3.8%;
   padding: 0;
-  z-index: 9;
+
   border-radius: 20px;
+  box-shadow: 0px 5px 10px 5px #c5ac72;
+}
+
+.image-container ::before:hover {
+  animation: cardHover 0.3s ease-in-out forwards;
 }
 
 .card-info {
@@ -168,13 +243,14 @@ footer h3 {
   color: white;
   padding: 1rem;
   margin-bottom: 15px;
-  z-index: 10;
+  z-index: 13;
 }
 
 .card-info p {
   font-size: 14px;
   height: 125px;
   overflow: hidden;
+  z-index: 13;
 }
 
 .card-info h2 {
@@ -184,6 +260,12 @@ footer h3 {
 }
 
 /* ! single-blog.html */
+.spacer {
+  height: 20vh;
+  padding-bottom: 20px;
+  background: linear-gradient(180deg, #0a196e 30%, rgba(41, 50, 60, 0) 90%);
+}
+
 .single-blog-container {
   display: flex;
   flex-direction: row;
@@ -191,6 +273,7 @@ footer h3 {
   justify-content: flex-end;
   color: white;
   position: relative;
+  margin-bottom: 40px;
 }
 
 .img-container {
@@ -200,18 +283,39 @@ footer h3 {
   /* justify-content: flex-start; */
   /* align-items: center; */
   position: sticky;
-  top: 0;
+  top: 10%;
   position: -webkit-sticky;
   /* height: 100%; */
   padding-left: 100px;
   padding-right: 100px;
   margin-right: 50px;
+  margin-top: 50px;
 }
 
 .single-post-img {
   width: 35vw;
   height: 60vh;
   object-fit: cover;
+  border-radius: 20px;
+}
+
+.post-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 1.1rem;
+  margin-top: 40px;
+}
+
+.post-info i {
+  margin-right: 20px;
+}
+
+.author,
+.posted-time {
+  display: flex;
+  align-items: center;
 }
 
 .content {
@@ -220,6 +324,15 @@ footer h3 {
   padding-right: 50px;
   font-size: 14px;
   color: white;
+}
+
+/* ! Media Queries */
+
+@media (max-width: 1920px) {
+  .container {
+    width: 1360px;
+    padding-right: 20px;
+  }
 }
 
 @media (max-width: 1420px) {
