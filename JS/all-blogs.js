@@ -23,7 +23,10 @@ const standardTemplate=(posts)=>{
                     <div class="image-container"><a href="single-blog.html?id=${post.id}"><img src="${imgDetails.source_url}" alt="${imgDetails.alt_text}" class"slide-pic"></a></div>
                     <div class="card-info">
                         <h2>${post.title.rendered}</h2>
-                        ${imgDetails.caption.rendered}
+                        <div class="card-content">
+                            ${imgDetails.caption.rendered}
+                            <a href="single-blog.html?id=${post.id}" class="read-more-btn">Read More</a>
+                        </div>
                     </div>
                 </div>
             `
