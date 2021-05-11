@@ -28,7 +28,7 @@ h2 {
 /* ! Premade Classes */
 .overflow-hidden {
   overflow: hidden;
-  height: 100vh;
+  height: 100%;
 }
 
 /* ! Header */
@@ -106,6 +106,8 @@ header {
   text-decoration: none;
 }
 
+/* !Hamburgermenu før media queries */
+
 .hamburger-icon {
   display: none;
 }
@@ -137,9 +139,13 @@ header {
   height: 40%;
   display: flex;
   justify-content: space-between;
-
   align-items: center;
   flex-direction: column;
+  transform: translateY(-200px);
+}
+
+.hamburger-links li {
+  opacity: 0;
 }
 
 .hamburger-menu a {
@@ -460,6 +466,19 @@ footer h3 {
 
   .hamburger-icon.hamburger-animation .hamburger-lines::before {
     transform: rotate(-45deg) translate(35px, 35px);
+  }
+}
+
+/* ? Animasjon til hamburger linkene */
+@keyframes hamburgerLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0px);
   }
 }
 
