@@ -325,9 +325,9 @@ footer h3 {
 
 /* ! single-blog.html */
 .spacer {
-  height: 20vh;
+  height: 45vh;
   padding-bottom: 20px;
-  background: linear-gradient(180deg, #0a196e 30%, rgba(41, 50, 60, 0) 90%);
+  background: linear-gradient(180deg, #0f1747 30%, rgba(41, 50, 60, 0) 90%);
 }
 
 .single-blog-container {
@@ -338,14 +338,16 @@ footer h3 {
   color: white;
   position: relative;
   margin-bottom: 40px;
+  transform: translateY(-80px);
 }
 
 .img-container {
   width: 30vw;
+  min-width: 27vh;
   display: flex;
   flex-direction: column;
   position: sticky;
-  top: 10%;
+  top: 30%;
   position: -webkit-sticky;
   padding-left: 100px;
   padding-right: 100px;
@@ -354,8 +356,8 @@ footer h3 {
 }
 
 .single-post-img {
-  width: 35vw;
-  height: 60vh;
+  width: 50vw;
+  height: 52vh;
   object-fit: cover;
   border-radius: 20px;
 }
@@ -381,7 +383,7 @@ footer h3 {
 
 .content {
   width: 50%;
-  margin: auto 0 auto 0;
+  /* margin: auto 0 auto 0; */
   padding-right: 50px;
   font-size: 14px;
   color: white;
@@ -467,6 +469,23 @@ footer h3 {
   .hamburger-icon.hamburger-animation .hamburger-lines::before {
     transform: rotate(-45deg) translate(35px, 35px);
   }
+
+  .single-blog-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-container {
+    display: none;
+  }
+
+  .content {
+    padding: 0;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* ? Animasjon til hamburger linkene */
@@ -489,5 +508,24 @@ footer h3 {
 
   .home-h1 {
     font-size: 2rem;
+    text-align: center;
+  }
+
+  .single-blog-container {
+    width: 90%;
+    margin: auto;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+  }
+
+  .single-post-img {
+    width: 90%;
+    margin: auto;
   }
 }
