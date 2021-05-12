@@ -17,6 +17,7 @@ h1 {
   font-family: "Cinzel", serif;
   font-size: 3rem;
   z-index: 999;
+  text-align: center;
 }
 
 h2 {
@@ -28,17 +29,37 @@ h2 {
 /* ! Premade Classes */
 .overflow-hidden {
   overflow: hidden;
-  height: 100%;
+  /* height: 100%; */
 }
 
 /* ! Header */
-.kings-landing-bg-img {
-  background-image: url("/img/kings-landing.jpg");
+
+.header-bg-img {
+  box-shadow: 0 6px 7px -7px #c5ac72;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+
+.kings-landing-bg-img {
+  background-image: url("/img/kings-landing.jpg");
+}
+
+.citadel-library-bg-img {
+  background-image: url("/img/citadel-library.jpg");
+}
+
+.winterfell-bg-img {
+  background-image: url("/img/winterfell.jpg");
+  background-position-y: 0px;
 }
 
 header {
@@ -53,15 +74,6 @@ header {
   position: absolute;
   top: 3%;
   left: 7%;
-}
-
-.kings-landing-bg-img {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  position: relative;
 }
 
 .dark-fade-bg ::before {
@@ -115,7 +127,7 @@ header {
 .hamburger-menu {
   list-style: none;
   font-size: 1.5rem;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   position: absolute;
   top: 0;
@@ -136,12 +148,11 @@ header {
 }
 
 .hamburger-links {
-  height: 40%;
+  height: 500px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  transform: translateY(-200px);
 }
 
 .hamburger-links li {
@@ -310,6 +321,7 @@ footer h3 {
 .read-more-btn {
   color: white;
   text-decoration: none;
+  font-size: 1rem;
   padding: 20px 30px;
   background: #c5ac72;
   text-align: center;
@@ -327,10 +339,12 @@ footer h3 {
 .spacer {
   height: 45vh;
   padding-bottom: 20px;
-  background: linear-gradient(180deg, #0f1747 30%, rgba(41, 50, 60, 0) 90%);
+  background: linear-gradient(180deg, #be9d4e 10%, rgba(0, 0, 0, 0) 50%);
 }
 
 .single-blog-container {
+  width: 80%;
+  margin: auto;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -342,24 +356,27 @@ footer h3 {
 }
 
 .img-container {
+  background: linear-gradient(0deg, #03030c 5%, #1c1c1f 50%);
   width: 30vw;
   min-width: 27vh;
   display: flex;
   flex-direction: column;
   position: sticky;
-  top: 30%;
+  top: 10%;
   position: -webkit-sticky;
   padding-left: 100px;
   padding-right: 100px;
   margin-right: 50px;
-  margin-top: 50px;
+  box-shadow: rgba(167, 144, 79, 0.061) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgb(0, 0, 0) 0px -2px 6px 0px inset;
 }
 
 .single-post-img {
-  width: 50vw;
-  height: 52vh;
+  width: 100%;
+  height: 500px;
   object-fit: cover;
   border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
 .post-info {
@@ -379,6 +396,11 @@ footer h3 {
 .posted-time {
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
+}
+
+.single-post-title-sm-scr {
+  display: none;
 }
 
 .content {
@@ -387,6 +409,12 @@ footer h3 {
   padding-right: 50px;
   font-size: 14px;
   color: white;
+}
+
+/* !about.html */
+
+.about-h1 {
+  transform: translateY(-50px);
 }
 
 /* ! Media Queries */
@@ -479,6 +507,11 @@ footer h3 {
     display: none;
   }
 
+  .single-post-title-sm-scr {
+    display: block;
+    text-align: center;
+  }
+
   .content {
     padding: 0;
     width: 70%;
@@ -527,5 +560,11 @@ footer h3 {
   .single-post-img {
     width: 90%;
     margin: auto;
+  }
+
+  .header-bg-img h2 {
+    text-align: center;
+    font-size: 1.2rem;
+    width: 50%;
   }
 }

@@ -15,7 +15,7 @@ fetch(url, {
 .catch(err =>{
     console.error(err)
 }) 
-
+{/* <img src="./img/stark-logo.png"> */}
 const singleBlogTemplate =(blog)=>{
     console.log(blog)
     document.title = blog.title.rendered;
@@ -25,7 +25,8 @@ const singleBlogTemplate =(blog)=>{
     console.log(image.media_details.sizes.medium.source_url)    
     newDiv += `
         <div class="img-container">
-            <img src="./img/stark-logo.png">
+            <h1>${blog.title.rendered}</h1>
+            <img src="${image.source_url}" alt="${image.alt_text}" class="single-post-img single-post-img-${blog.slug}">
             <div class="post-info">
                 <div class="author">
                     <i class="fas fa-user fa-2x"></i>
@@ -38,8 +39,9 @@ const singleBlogTemplate =(blog)=>{
             </div>
         </div>
         <div class="content content-${blog.slug}">
-        <img src="${image.source_url}" alt="${image.alt_text}" class="single-post-img single-post-img-${blog.slug}">
-        <h1>${blog.title.rendered}</h1>
+        <h1 class="single-post-title-sm-scr">${blog.title.rendered}</h1>
+        
+        
         ${blog.content.rendered}
         </div>
     `
