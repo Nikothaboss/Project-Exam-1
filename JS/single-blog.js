@@ -26,7 +26,7 @@ const singleBlogTemplate =(blog)=>{
     newDiv += `
         <div class="img-container">
             <h1>${blog.title.rendered}</h1>
-            <img src="${image.source_url}" alt="${image.alt_text}" class="single-post-img single-post-img-${blog.slug}">
+            <a href="${image.source_url}"><img src="${image.source_url}" alt="${image.alt_text}" class="single-post-img single-post-img-${blog.slug}"></a>
             <div class="post-info">
                 <div class="author">
                     <i class="fas fa-user fa-2x"></i>

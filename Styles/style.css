@@ -413,6 +413,12 @@ footer h3 {
 
 /* !about.html */
 
+.about-us-content {
+  color: white;
+  width: 50%;
+  margin: 50px auto;
+}
+
 .about-h1 {
   transform: translateY(-50px);
 }
@@ -430,6 +436,10 @@ footer h3 {
   .container {
     width: 1020px;
     padding-right: 20px;
+  }
+
+  .about-us-content {
+    width: 70%;
   }
 }
 
