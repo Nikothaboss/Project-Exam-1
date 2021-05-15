@@ -82,6 +82,16 @@ header {
   left: 7%; */
 }
 
+.bg-content {
+  z-index: 1001;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .dark-fade-bg ::before {
   content: "";
   background: rgba(0, 0, 0, 0.356);
@@ -92,11 +102,7 @@ header {
   right: 0;
   left: 0;
   bottom: 0;
-  z-index: 0;
-}
-
-.dark-fade-bg h1 {
-  z-index: 999;
+  z-index: 9;
 }
 
 .logo-container {
@@ -478,7 +484,7 @@ footer h3 {
 
   .hamburger-lines {
     width: 50px;
-    height: 6px;
+    height: 4px;
     background: white;
     border-radius: 5px;
     transition: all 0.5s ease-in-out;
@@ -490,7 +496,7 @@ footer h3 {
     content: "";
     position: absolute;
     width: 50px;
-    height: 6px;
+    height: 4px;
     background: white;
     border-radius: 5px;
     transition: all 0.5s ease-in-out;
@@ -620,9 +626,18 @@ footer h3 {
     transition: 0.3s ease-in-out;
   }
 
+  .next:hover,
+  .prev:hover {
+    background-color: #4646468e;
+  }
+
   .container {
     height: 600px;
     align-items: center;
+  }
+
+  .header-bg-img {
+    justify-content: flex-end;
   }
 }
 
