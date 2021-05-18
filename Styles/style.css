@@ -36,6 +36,10 @@ h2 {
   height: 200px;
 }
 
+.spacer-100px {
+  height: 100px;
+}
+
 .spacer-10vh {
   height: 10vh;
 }
@@ -65,7 +69,13 @@ h2 {
   color: white;
   position: absolute;
   z-index: 0;
+  text-align: center;
 }
+
+/* .header-bg-img h2,
+.header-bg-img h3 {
+  width: 70%;
+} */
 
 .kings-landing-bg-img {
   background-image: url("/img/kings-landing.jpg");
@@ -73,11 +83,16 @@ h2 {
 
 .citadel-library-bg-img {
   background-image: url("/img/citadel-library.jpg");
+  background-position-y: 0px;
 }
 
 .winterfell-bg-img {
   background-image: url("/img/winterfell.jpg");
   background-position-y: 0px;
+}
+
+.castle-black-bg-img {
+  background-image: url("/img/Castle-Black.jpg");
 }
 
 header {
@@ -103,6 +118,7 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 80%;
   /* margin-bottom: 5vh; */
 }
 
@@ -447,7 +463,7 @@ footer h3 {
 
 .about-us-content {
   color: white;
-  width: 50%;
+  width: 70%;
   margin: 50px auto;
 }
 
@@ -464,6 +480,46 @@ footer h3 {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   width: 90%;
   margin: 50px auto;
+}
+
+/* ! contact.html */
+form {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+#sign-up > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+input {
+  padding: 15px;
+  width: 30%;
+}
+
+textarea {
+  width: 30%;
+  padding: 10px;
+  height: 180px;
+}
+
+.form-submitted {
+  display: flex;
+  justify-content: center;
+  color: white;
+  text-decoration: underline;
+}
+
+.submit-btn {
+  margin-top: 20px;
 }
 
 /* ! Media Queries */

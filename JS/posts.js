@@ -22,19 +22,19 @@ const standardTemplate=(posts)=>{
         for(imgDetails of media){
             newDiv +=`
             <div class="card ${post.slug}">
-            <div class="image-container"><a href="single-blog.html?id=${post.id}"><img src="${imgDetails.source_url}" alt="${imgDetails.alt_text}" class"slide-pic"></a></div>
-            <div class="card-dark-fade-bg">
-                <p></p> 
-            </div>
-            <div class="card-info">
-                <h2>${post.title.rendered}</h2>
-                <div class="card-content">
-                    ${imgDetails.caption.rendered}
-                    <a href="single-blog.html?id=${post.id}" class="read-more-btn">Read More</a>
+                <div class="image-container"><a href="single-blog.html?id=${post.id}"><img src="${imgDetails.source_url}" alt="${imgDetails.alt_text}" class="z-index-high"></a></div>
+                <div class="card-dark-fade-bg">
+                <a href="single-blog.html?id=${post.id}"><p></p></a> 
+                </div>
+                <div class="card-info">
+                    <h2>${post.title.rendered}</h2>
+                    <div class="card-content">
+                        ${imgDetails.caption.rendered}
+                        <a href="single-blog.html?id=${post.id}" class="read-more-btn">Read More</a>
+                    </div>
                 </div>
             </div>
-        </div>
-            `
+        `
             contentToPage.innerHTML += newDiv;
         }  
     }
