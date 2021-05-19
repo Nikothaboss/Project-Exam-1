@@ -26,6 +26,10 @@ h2 {
   z-index: 999;
 }
 
+ul {
+  list-style: none;
+}
+
 /* ! Premade Classes */
 .overflow-hidden {
   overflow: hidden;
@@ -119,6 +123,7 @@ header {
   align-items: center;
   text-align: center;
   width: 80%;
+  margin: auto;
   /* margin-bottom: 5vh; */
 }
 
