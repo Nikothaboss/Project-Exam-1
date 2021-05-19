@@ -33,7 +33,6 @@ ul {
 /* ! Premade Classes */
 .overflow-hidden {
   overflow: hidden;
-  /* height: 100%; */
 }
 
 .spacer-50vh {
@@ -76,11 +75,6 @@ ul {
   text-align: center;
 }
 
-/* .header-bg-img h2,
-.header-bg-img h3 {
-  width: 70%;
-} */
-
 .kings-landing-bg-img {
   background-image: url("/img/kings-landing.jpg");
 }
@@ -108,14 +102,9 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /* z-index: 1001; */
-  /* position: absolute;
-  top: 3%;
-  left: 7%; */
 }
 
 .bg-content {
-  /* z-index: 1001; */
   color: white;
   display: flex;
   flex-direction: column;
@@ -124,7 +113,6 @@ header {
   text-align: center;
   width: 80%;
   margin: auto;
-  /* margin-bottom: 5vh; */
 }
 
 .dark-fade-bg ::before {
@@ -458,7 +446,6 @@ footer h3 {
 
 .content {
   width: 50%;
-  /* margin: auto 0 auto 0; */
   padding-right: 50px;
   font-size: 14px;
   color: white;
