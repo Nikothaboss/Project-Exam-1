@@ -14,6 +14,7 @@ fetch(url, {
     console.error(err)
 }) 
 
+
 const standardTemplate=(posts)=>{
     for(post of posts){
         let newDiv = ``;
@@ -39,6 +40,8 @@ const standardTemplate=(posts)=>{
         }  
     }
 }
+
+
 
 viewMoreBtn.addEventListener("click", () =>{
     fetch(url2, {
