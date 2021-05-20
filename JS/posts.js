@@ -1,8 +1,8 @@
 const contentToPage = document.querySelector(".posts-container");
 const viewMoreBtn = document.querySelector(".view-more")
-
+let numOfPosts = 8;
 let url = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts?_embed=true&per_page=8`
-let url2 = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts?_embed=true&per_page=12`
+let url2 = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts?_embed=true&per_page=4&offset=${numOfPosts}`
 document.title = "Exam | Nikolai"
 
 fetch(url, {
@@ -18,7 +18,7 @@ fetch(url, {
 const standardTemplate=(posts)=>{
     for(post of posts){
         let newDiv = ``;
-        console.log(post);
+        console.log(post.length);
         let media = post._embedded["wp:featuredmedia"];
         for(imgDetails of media){
             newDiv +=`
@@ -44,13 +44,17 @@ const standardTemplate=(posts)=>{
 
 
 viewMoreBtn.addEventListener("click", () =>{
+    numOfPosts += 4
     fetch(url2, {
         "method": "GET",  
     })
     .then(response => response.json())
-    .then(contentToPage.innerHTML = "")
     .then(data => standardTemplate(data)) 
     .catch(err =>{
         console.error(err)
     }) 
+
+    if(numOfPosts >= 12){
+        viewMoreBtn.style.display = "none"
+    }
 })

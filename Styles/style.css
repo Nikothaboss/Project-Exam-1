@@ -155,6 +155,12 @@ header {
 .navbar a {
   color: white;
   text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.navbar a:hover{
+  border-bottom: 2px solid white;
+  transition: .3s ease-in-out;
 }
 
 /* !Hamburgermenu før media queries */
@@ -474,6 +480,15 @@ footer h3 {
   margin: 50px auto;
 }
 
+.view-more{
+  padding: 20px 30px;
+  background-color: #c5ac72;
+  width: 200px;
+  margin: 0 auto 40px auto;
+  border-radius: 5px;
+  border: none;
+}
+
 /* ! contact.html */
 form {
   color: white;
@@ -499,7 +514,7 @@ input {
 
 textarea {
   width: 30%;
-  padding: 10px;
+  padding: 15px;
   height: 180px;
 }
 
@@ -667,6 +682,14 @@ textarea {
     text-align: center;
     font-size: 1.2rem;
     width: 50%;
+  }
+}
+
+@media(max-width: 667px){
+  .posts-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
