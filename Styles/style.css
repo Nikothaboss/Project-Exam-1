@@ -158,9 +158,9 @@ header {
   border-bottom: 2px solid transparent;
 }
 
-.navbar a:hover{
+.navbar a:hover {
   border-bottom: 2px solid white;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 /* !Hamburgermenu før media queries */
@@ -224,7 +224,6 @@ footer h3 {
 }
 
 /* ! index.html */
-
 .latest-posts {
   width: 80%;
   margin: auto;
@@ -480,7 +479,7 @@ footer h3 {
   margin: 50px auto;
 }
 
-.view-more{
+.view-more {
   padding: 20px 30px;
   background-color: #c5ac72;
   width: 200px;
@@ -489,7 +488,24 @@ footer h3 {
   border: none;
 }
 
+.sort-btns {
+  width: 85%;
+  margin: 50px auto 0 auto;
+}
+
+.sort-btns a {
+  padding: 20px 30px;
+  background-color: #c5ac72;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 /* ! contact.html */
+.form-container {
+  width: 30%;
+  margin: auto;
+}
+
 form {
   color: white;
   display: flex;
@@ -501,20 +517,20 @@ form {
 #sign-up > div {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   margin-bottom: 10px;
   width: 100%;
 }
 
 input {
-  padding: 15px;
-  width: 30%;
+  padding: 15px 0;
+  width: 100%;
 }
 
 textarea {
-  width: 30%;
-  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
   height: 180px;
 }
 
@@ -527,6 +543,11 @@ textarea {
 
 .submit-btn {
   margin-top: 20px;
+}
+
+.submit-btn input {
+  background-color: #c5ac72;
+  border: none;
 }
 
 /* ! Media Queries */
@@ -685,8 +706,8 @@ textarea {
   }
 }
 
-@media(max-width: 667px){
-  .posts-container{
+@media (max-width: 667px) {
+  .posts-container {
     display: flex;
     flex-direction: column;
     align-items: center;

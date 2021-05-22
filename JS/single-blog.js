@@ -15,7 +15,7 @@ fetch(url, {
 .catch(err =>{
     console.error(err)
 }) 
-{/* <img src="./img/stark-logo.png"> */}
+
 const singleBlogTemplate =(blog)=>{
     console.log(blog)
     document.title = blog.title.rendered;
