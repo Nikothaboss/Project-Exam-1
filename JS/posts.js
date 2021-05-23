@@ -21,11 +21,18 @@ const fetchData = (queryString, funcToRun, param = "") =>{
     }) 
 }
 
-
+// ! Booleans som endrer funksjonen til default template
 let delPrevContent = false
+let sort = false
+
+// ! States
+let isSorted = false
+let viewMoreClicked = false
+
 // ! Default template
-const standardTemplate=(posts)=>{
+const standardTemplate=(posts, sortBy)=>{
     if(delPrevContent === true){contentToPage.innerHTML = ""}
+    if(sort === true){posts.sort(sortBy)}
     for(post of posts){
         let newDiv = ``;
         let media = post._embedded["wp:featuredmedia"];
@@ -51,47 +58,18 @@ const standardTemplate=(posts)=>{
 }
 fetchData(url, standardTemplate)
 
-// ! Sorted Template
-const sortedTemplate=(posts, sortBy)=>{
-    if(delPrevContent === true){contentToPage.innerHTML = ""}
-    posts.sort(sortBy)
-    for(post of posts){
-        let newDiv = ``;
-        let media = post._embedded["wp:featuredmedia"];
-        for(imgDetails of media){
-            newDiv +=`
-            <div class="card ${post.slug}">
-                <div class="image-container"><a href="single-blog.html?id=${post.id}"><img src="${imgDetails.source_url}" alt="${imgDetails.alt_text}" class="z-index-high"></a></div>
-                <div class="card-dark-fade-bg">
-                <a href="single-blog.html?id=${post.id}"><p></p></a> 
-                </div>
-                <div class="card-info">
-                    <h2>${post.title.rendered}</h2>
-                    <div class="card-content">
-                        ${imgDetails.caption.rendered}
-                        <a href="single-blog.html?id=${post.id}" class="read-more-btn">Read More</a>
-                    </div>
-                </div>
-            </div>
-        `
-            contentToPage.innerHTML += newDiv;
-        }  
-    }
-}
 
-let isSorted = false
-let viewMoreClicked = false
 
 //  ! Sorteringer
 sortNameAsc.addEventListener("click", () =>{
+    sort = true
     isSorted = true
-
     delPrevContent = true
-    fetchData(url, sortedTemplate, sortByName)
+    fetchData(url, standardTemplate, sortByName)
    
 
     if(viewMoreClicked === true){
-        fetchData(twelvePostsUrl, sortedTemplate, sortByName)
+        fetchData(twelvePostsUrl, standardTemplate, sortByName)
     }
 
     }
@@ -106,8 +84,9 @@ viewMoreBtn.addEventListener("click", () =>{
     fetchData(viewMoreUrl, standardTemplate)
 
     if(isSorted === true){
+        sort = true
         delPrevContent = true
-        fetchData(twelvePostsUrl, sortedTemplate, sortByName)
+        fetchData(twelvePostsUrl, standardTemplate, sortByName)
     }
     
     if(numOfPosts >= 12){
