@@ -5,13 +5,15 @@ const form = document.querySelector("#sign-up");
 const name = document.querySelector("#name");
 const subject = document.querySelector("#subject");
 const email = document.querySelector("#email");
-const address = document.querySelector("#address");
+const message = document.querySelector("#message")
+
 
 // error messages
 const nameError = document.querySelector("#name-error");
 const subjectError = document.querySelector("#subject-error");
 const emailError = document.querySelector("#email-error");
-const addressError = document.querySelector("#address-error");
+const messageError = document.querySelector("#message-error")
+
 
 // Level 2
 const success = document.querySelector(".level2");
@@ -48,15 +50,15 @@ const formValidation=(formEvent)=>{
         emailError.innerHTML += "Not a valid email"
     }
 
-    // Validate address - must have a value with a minimum length of 10
-    let givenAddress = address.value.trim()
-    addressError.innerHTML = ""
-    if(givenAddress.length < 10){
-        addressError.innerHTML += "Please enter a valid address"
+    // Validate message - should be at least 25 characters
+    let givenMessage = message.value.trim();
+    messageError.innerHTML = ""
+    if(givenMessage.length < 25){
+        messageError.innerHTML += "Please tell us a bit more about you problem"
     }
 
     // Level 2 - add a message above the form indicating the form passed validation.
-    if(nameError.innerHTML === "" && subjectError.innerHTML === "" && emailError.innerHTML === "" && addressError.innerHTML === ""){
+    if(nameError.innerHTML === "" && subjectError.innerHTML === "" && emailError.innerHTML === "" && messageError.innerHTML === ""){
         success.innerHTML += "Form Submitted!"
     }
 

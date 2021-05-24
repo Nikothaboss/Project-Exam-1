@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="./Styles/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/Stark-icon.png">
     <title>Exam - Nikolai</title>
 </head>
 <body>
@@ -38,16 +39,18 @@
     </div>    
                 
     <header>
-            <img src="./img/logo.png" alt="game of blogs logo" class="logo">
-            <ul class="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="posts.html">Posts</a></li>    
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="hamburger-icon">
-                <div class="hamburger-lines"></div>
-            </div>
+        <div class="logo-container z-index-high">
+            <a href="index.html"><img src="./img/logo.png" alt="game of blogs logo" class="logo"></a>
+        </div>
+        <ul class="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="posts.html">Posts</a></li>    
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger-icon">
+            <div class="hamburger-lines"></div>
+        </div>
     </header>            
             
     <div class="bg-content">  
@@ -63,6 +66,9 @@
         <h2>Latest Posts</h2>
         <hr>
     </div>
+
+    <div class="loading"><img src="/img/loading-spinner.gif" alt=""></div>
+
     <div class="container">
         <div class="carousel-container"></div>
         <a class="prev"><i class="fas fa-chevron-left fa-3x"></i></a>

@@ -18,7 +18,7 @@ fetch(url, {
 
 const singleBlogTemplate =(blog)=>{
     console.log(blog)
-    document.title = blog.title.rendered;
+    document.title = "GoB" + " | " + blog.title.rendered;
     let images = blog._embedded["wp:featuredmedia"];
     let newDiv = ``;
     for(image of images){

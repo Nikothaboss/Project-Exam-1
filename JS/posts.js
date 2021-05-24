@@ -2,6 +2,7 @@ const contentToPage = document.querySelector(".posts-container");
 const viewMoreBtn = document.querySelector(".view-more")
 const sortNameDes = document.querySelector(".sort-A-Z")
 const sortNameAsc = document.querySelector(".sort-Z-A")
+const loading = document.querySelector(".loading")
 
 
 let numOfPosts = 8;
@@ -19,6 +20,7 @@ const fetchData = (queryString, funcToRun, param = "") =>{
     .catch(err =>{
         console.error(err)
     }) 
+    .finally(()=>loading.style.display = "none")
 }
 
 // ! Booleans som endrer funksjonen til default template

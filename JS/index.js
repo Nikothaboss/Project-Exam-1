@@ -1,4 +1,5 @@
 const contentToPage = document.querySelector(".carousel-container") 
+const loading = document.querySelector(".loading")
 
 const url = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts?_embed=true&per_page=100`
 document.title = "Exam | Nikolai"
@@ -11,6 +12,7 @@ fetch(url, {
 .catch(err =>{
     console.error(err)
 }) 
+.finally(()=>loading.style.display = "none")
 
 const standardTemplate=(posts)=>{
     for(post of posts){
