@@ -30,6 +30,20 @@ ul {
   list-style: none;
 }
 
+fieldset {
+  width: 100%;
+  background-color: #313142;
+  border: 3px solid #8c8c90;
+  border-radius: 5px;
+}
+
+legend {
+  padding: 5px 10px;
+  /* background-color: #c5ac72; */
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
 /* ! Premade Classes */
 .overflow-hidden {
   overflow: hidden;
@@ -55,12 +69,12 @@ ul {
   z-index: 999;
 }
 
-.loading{
+.loading {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 500px;
+  height: 200px;
 }
 
 /* ! Header */
@@ -215,6 +229,19 @@ header {
 .hamburger-menu a {
   color: white;
   text-decoration: none;
+}
+
+/* ? Animasjon til hamburger linkene */
+@keyframes hamburgerLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
 }
 
 /* ! footer */
@@ -464,7 +491,7 @@ footer h3 {
   color: white;
 }
 
-/* !he.html */
+/* !about.html */
 
 .about-us-content {
   color: white;
@@ -506,6 +533,11 @@ footer h3 {
   background-color: #c5ac72;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.posts-hr {
+  width: 85%;
+  margin-top: 40px;
 }
 
 /* ! contact.html */
@@ -578,7 +610,7 @@ textarea {
   }
 
   /* ! Contact.html */
-  .form-container{
+  .form-container {
     width: 40%;
   }
 }
@@ -648,6 +680,8 @@ textarea {
     transform: rotate(-45deg) translate(35px, 35px);
   }
 
+  /* ! single-blog.html */
+
   .single-blog-container {
     flex-direction: column;
     align-items: center;
@@ -671,24 +705,9 @@ textarea {
   }
 
   /* ! Contact.html */
-  .form-container{
+  .form-container {
     width: 50%;
   }
-}
-
-/* ? Animasjon til hamburger linkene */
-@keyframes hamburgerLinkFade {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-
-  
 }
 
 @media (max-width: 800px) {
@@ -726,7 +745,7 @@ textarea {
   }
 
   /* ! Contact.html */
-  .form-container{
+  .form-container {
     width: 80%;
   }
 }
@@ -738,11 +757,11 @@ textarea {
     align-items: center;
   }
 
-  .posts-h1{
+  .posts-h1 {
     font-size: 2rem;
   }
 
-  h3{
+  h3 {
     font-size: 1rem;
   }
 }

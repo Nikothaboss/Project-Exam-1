@@ -28,7 +28,8 @@ let delPrevContent = false
 let sort = false
 
 // ! States
-let isSorted = false
+let isSortedAZ = false
+let isSortedZA = false
 let viewMoreClicked = false
 
 // ! Default template
@@ -41,9 +42,11 @@ const standardTemplate=(posts, sortBy)=>{
         for(imgDetails of media){
             newDiv +=`
             <div class="card ${post.slug}">
-                <div class="image-container"><a href="single-blog.html?id=${post.id}"><img src="${imgDetails.source_url}" alt="${imgDetails.alt_text}" class="z-index-high"></a></div>
+                <div class="image-container">
+                    <a href="single-blog.html?id=${post.id}"><img src="${imgDetails.source_url}" alt="${imgDetails.alt_text}" class="z-index-high"></a>
+                </div>
                 <div class="card-dark-fade-bg">
-                <a href="single-blog.html?id=${post.id}"><p></p></a> 
+                    <a href="single-blog.html?id=${post.id}"><p></p></a> 
                 </div>
                 <div class="card-info">
                     <h2>${post.title.rendered}</h2>
@@ -62,20 +65,33 @@ fetchData(url, standardTemplate)
 
 
 
-//  ! Sorteringer
+//  ! Sorterings events
 sortNameAsc.addEventListener("click", () =>{
     sort = true
-    isSorted = true
+    isSortedZA = true
+    isSortedAZ = false
     delPrevContent = true
-    fetchData(url, standardTemplate, sortByName)
+    fetchData(url, standardTemplate, sortByNameZA)
    
 
     if(viewMoreClicked === true){
-        fetchData(twelvePostsUrl, standardTemplate, sortByName)
+        fetchData(twelvePostsUrl, standardTemplate, sortByNameZA)
     }
 
     }
 )
+
+sortNameDes.addEventListener("click", ()=>{
+    sort = true;
+    isSortedAZ = true;
+    isSortedZA = false;
+    delPrevContent = true;
+    fetchData(url, standardTemplate, sortByName)
+
+    if(viewMoreClicked === true){
+        fetchData(twelvePostsUrl, standardTemplate, sortByName)
+    }
+})
 
 
 // ! View More
@@ -83,21 +99,26 @@ viewMoreBtn.addEventListener("click", () =>{
     numOfPosts += 4;
     viewMoreClicked = true;
 
-    fetchData(viewMoreUrl, standardTemplate)
+    // ? View more som viser de fire neste av default sortering
+    fetchData(viewMoreUrl, standardTemplate);
 
-    if(isSorted === true){
-        sort = true
+    // ? View more når man han sortert A-Z
+    if(isSortedAZ === true){
         delPrevContent = true
         fetchData(twelvePostsUrl, standardTemplate, sortByName)
     }
+
+    // ? View more når man han sortert Z-A
+    if(isSortedZA === true){
+        delPrevContent = true
+        fetchData(twelvePostsUrl, standardTemplate, sortByNameZA)
+    }
     
+    // ? Gjemmer view more knappen når det ikke er flere posts å hente
     if(numOfPosts >= 12){
         viewMoreBtn.style.display = "none"
     }
 })
-
-
-
 
 
 // ! Sorteringsfunksjoner
@@ -106,5 +127,13 @@ const sortByName =(a,b)=>{
     var name2 = b.title.rendered.toUpperCase()
     if(name1 < name2) return -1;
     if(name1 > name2) return 1;
+    else return 0;
+}
+
+const sortByNameZA =(a,b)=>{
+    var name1 = a.title.rendered.toUpperCase()
+    var name2 = b.title.rendered.toUpperCase()
+    if(name1 < name2) return 1;
+    if(name1 > name2) return -1;
     else return 0;
 }

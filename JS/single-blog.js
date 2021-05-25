@@ -1,7 +1,7 @@
 const getQS = document.location.search;
 const params = new URLSearchParams(getQS);
 const id = params.get("id");
-console.log(id);
+
 
 const url = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts/${id}?_embed=true`;
 
@@ -15,6 +15,9 @@ fetch(url, {
 .catch(err =>{
     console.error(err)
 }) 
+
+const test = document.querySelectorAll(".posts-container>img");
+console.log(test)
 
 const singleBlogTemplate =(blog)=>{
     console.log(blog)
