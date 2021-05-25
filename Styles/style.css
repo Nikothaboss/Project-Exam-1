@@ -137,6 +137,7 @@ header {
   margin: auto;
 }
 
+
 .dark-fade-bg ::before {
   content: "";
   background: rgba(0, 0, 0, 0.356);
