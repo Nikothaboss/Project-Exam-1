@@ -71,11 +71,13 @@ sortNameAsc.addEventListener("click", () =>{
     isSortedZA = true
     isSortedAZ = false
     delPrevContent = true
-    fetchData(url, standardTemplate, sortByNameZA)
+    
    
 
     if(viewMoreClicked === true){
         fetchData(twelvePostsUrl, standardTemplate, sortByNameZA)
+    }else{
+        fetchData(url, standardTemplate, sortByNameZA)
     }
 
     }
@@ -86,10 +88,12 @@ sortNameDes.addEventListener("click", ()=>{
     isSortedAZ = true;
     isSortedZA = false;
     delPrevContent = true;
-    fetchData(url, standardTemplate, sortByName)
+    
 
     if(viewMoreClicked === true){
         fetchData(twelvePostsUrl, standardTemplate, sortByName)
+    }else{
+        fetchData(url, standardTemplate, sortByName)
     }
 })
 

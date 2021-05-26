@@ -137,7 +137,6 @@ header {
   margin: auto;
 }
 
-
 .dark-fade-bg ::before {
   content: "";
   background: rgba(0, 0, 0, 0.356);
@@ -260,6 +259,10 @@ footer h3 {
 }
 
 /* ! index.html */
+.home-h1 {
+  margin: 60px 0 0 0;
+}
+
 .latest-posts {
   width: 80%;
   margin: auto;
@@ -459,6 +462,7 @@ footer h3 {
   object-fit: cover;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  cursor: pointer;
 }
 
 .post-info {
@@ -490,6 +494,33 @@ footer h3 {
   padding-right: 50px;
   font-size: 14px;
   color: white;
+}
+
+.modal {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  transition: all 0.3s ease-in-out;
+}
+
+.exit {
+  color: white;
+  width: 70%;
+  margin: 0 auto 40px auto;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 80px;
+}
+
+.exit-sign {
+  z-index: 9999;
+  cursor: pointer;
 }
 
 /* !about.html */
@@ -772,7 +803,6 @@ textarea {
 
   .home-h1 {
     width: 80%;
-    margin-top: 50px;
   }
 
   .card:hover {

@@ -7,6 +7,8 @@ const url = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts/${id}?_embed=true`
 
 const contentToPage = document.querySelector(".single-blog-container");
 const imgModal = document.querySelector(".modal-container");
+const modal = document.querySelector(".modal");
+const modalExit = document.querySelector(".exit-sign");
 
 
 
@@ -51,6 +53,7 @@ const singleBlogTemplate =(blog)=>{
         ${blog.content.rendered}
         </div>
     `
+    modal.innerHTML += `<img src="${image.source_url}" alt="${image.alt_text}" class="modal-img">`
     }
 
     contentToPage.innerHTML += newDiv;
@@ -58,9 +61,14 @@ const singleBlogTemplate =(blog)=>{
 }
 
 const modalFunc = () =>{
-    const plsFunk = document.querySelector(".single-post-img");
-    console.log(plsFunk)
+    modal.style.display = "flex"
 }
+
+modal.addEventListener("click", ()=>{
+    modal.style.display = "none"
+})
+
+
 
 
 
