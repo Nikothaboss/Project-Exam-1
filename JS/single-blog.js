@@ -9,6 +9,7 @@ const contentToPage = document.querySelector(".single-blog-container");
 const imgModal = document.querySelector(".modal-container");
 const modal = document.querySelector(".modal");
 const modalExit = document.querySelector(".exit-sign");
+const body = document.querySelector("body")
 
 
 
@@ -62,10 +63,13 @@ const singleBlogTemplate =(blog)=>{
 
 const modalFunc = () =>{
     modal.style.display = "flex"
+    body.classList.add("overflow-hidden")
+
 }
 
 modal.addEventListener("click", ()=>{
     modal.style.display = "none"
+    body.classList.remove("overflow-hidden")
 })
 
 
