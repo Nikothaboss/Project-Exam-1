@@ -9,7 +9,8 @@ const contentToPage = document.querySelector(".single-blog-container");
 const imgModal = document.querySelector(".modal-container");
 const modal = document.querySelector(".modal");
 const modalExit = document.querySelector(".exit-sign");
-const body = document.querySelector("body")
+const loading =  document.querySelector(".loading")
+// const body = document.querySelector("body") <-- Body er hentet i hamburgerMenu.js så trenger ikke hente den på nytt
 
 
 
@@ -21,6 +22,7 @@ fetch(url, {
 .catch(err =>{
     console.error(err)
 }) 
+.finally(()=>loading.style.display = "none")
 
 
 
@@ -54,7 +56,7 @@ const singleBlogTemplate =(blog)=>{
         ${blog.content.rendered}
         </div>
     `
-    modal.innerHTML += `<img src="${image.source_url}" alt="${image.alt_text}" class="modal-img">`
+    modal.innerHTML += `<img src="${image.source_url}" alt="${image.alt_text}" class="modal-img modal-img-${blog.slug}">`
     }
 
     contentToPage.innerHTML += newDiv;

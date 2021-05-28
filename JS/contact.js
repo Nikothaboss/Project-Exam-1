@@ -15,8 +15,8 @@ const emailError = document.querySelector("#email-error");
 const messageError = document.querySelector("#message-error")
 
 
-// Level 2
-const success = document.querySelector(".level2");
+// Form success
+const success = document.querySelector(".success");
 
 // Making the name input required
 name.setAttribute("required", "");

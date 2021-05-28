@@ -47,10 +47,10 @@ legend {
 /* ! Premade Classes */
 .overflow-hidden {
   overflow: hidden;
-  height: 100vh;
+  height: 120vh;
 }
 
-.spacer-50vh {
+.spacer-200px {
   height: 200px;
 }
 
@@ -76,6 +76,7 @@ legend {
   justify-content: center;
   align-items: center;
   height: 200px;
+  margin: 0 0 200px 0
 }
 
 .active-page{
@@ -146,7 +147,7 @@ header {
 
 .dark-fade-bg ::before {
   content: "";
-  background: rgba(0, 0, 0, 0.356);
+  background: rgba(0, 0, 0, 0.256);
   width: 100%;
   height: 60vh;
   min-height: 500px;
@@ -432,7 +433,7 @@ footer h3 {
 .spacer {
   height: 45vh;
   padding-bottom: 20px;
-  background: linear-gradient(180deg, #be9d4e 10%, rgba(0, 0, 0, 0) 50%);
+  background: linear-gradient(180deg, #b4913f 10%, rgba(0, 0, 0, 0) 50%);
 }
 
 .single-blog-container {
@@ -452,6 +453,7 @@ footer h3 {
   background: linear-gradient(0deg, #03030c 5%, #1c1c1f 50%);
   width: 30vw;
   min-width: 27vh;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   position: sticky;
@@ -515,6 +517,10 @@ footer h3 {
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 9999;
   transition: all 0.3s ease-in-out;
+}
+
+.modal-img{
+  width: 600px;
 }
 
 .exit {
@@ -637,13 +643,24 @@ textarea {
   border: none;
 }
 
+.success{
+  margin-top: 40px;
+}
+
 /* ! Media Queries */
+@media(min-width: 2000px){
+    .spacer-50vh {
+    height: 250px;
+  }
+}
 
 @media (max-width: 1920px) {
   .container {
     width: 1360px;
     padding-right: 20px;
   }
+
+
 }
 
 @media (max-width: 1420px) {
