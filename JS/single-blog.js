@@ -6,10 +6,8 @@ const id = params.get("id");
 const url = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts/${id}?_embed=true`;
 
 const contentToPage = document.querySelector(".single-blog-container");
-const imgModal = document.querySelector(".modal-container");
 const modal = document.querySelector(".modal");
-const modalExit = document.querySelector(".exit-sign");
-const loading =  document.querySelector(".loading")
+const loading =  document.querySelector(".loading");
 // const body = document.querySelector("body") <-- Body er hentet i hamburgerMenu.js så trenger ikke hente den på nytt
 
 
@@ -66,10 +64,12 @@ const singleBlogTemplate =(blog)=>{
 const modalFunc = () =>{
     modal.style.display = "flex"
     body.classList.add("overflow-hidden")
-
+    document.documentElement.scrollTop = 0; //scroll til topp - Chrome, Firefox, IE and Opera
+    document.body.scrollTop = 0; // Scroll til topp - Safari
 }
 
 modal.addEventListener("click", ()=>{
+    document.body.scrollTop = 0;
     modal.style.display = "none"
     body.classList.remove("overflow-hidden")
 })
