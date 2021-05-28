@@ -64,8 +64,7 @@ const singleBlogTemplate =(blog)=>{
 const modalFunc = () =>{
     modal.style.display = "flex"
     body.classList.add("overflow-hidden")
-    document.documentElement.scrollTop = 0; //scroll til topp - Chrome, Firefox, IE and Opera
-    // document.body.scrollTop = 0; // Scroll til topp - Safari
+    document.documentElement.scrollTop = 0;
 }
 
 modal.addEventListener("click", ()=>{
