@@ -51,7 +51,6 @@ const singleBlogTemplate =(blog)=>{
         ${blog.content.rendered}
         </div>
     `
-    metaDescription.setAttribute("name", "description")
     metaDescription.setAttribute("content", `${blog.excerpt.rendered}`)
     modal.innerHTML += `<img src="${image.source_url}" alt="${image.alt_text}" class="modal-img modal-img-${blog.slug}">`
     console.log(metaDescription)
