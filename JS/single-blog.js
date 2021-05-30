@@ -8,6 +8,7 @@ const url = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts/${id}?_embed=true`
 const contentToPage = document.querySelector(".single-blog-container");
 const modal = document.querySelector(".modal");
 const loading =  document.querySelector(".loading");
+const metaDescription = document.querySelector(".meta-description")
 // const body = document.querySelector("body") <-- Body er hentet i hamburgerMenu.js så trenger ikke hente den på nytt
 
 
@@ -31,7 +32,6 @@ const singleBlogTemplate =(blog)=>{
     let newDiv = ``;
     for(image of images){   
     newDiv += `
-        
     <div class="img-container">
     <h1>${blog.title.rendered}</h1>
     <img src="${image.source_url}" alt="${image.alt_text}" onClick="modalFunc()" class="single-post-img single-post-img-${blog.slug}">
@@ -46,15 +46,15 @@ const singleBlogTemplate =(blog)=>{
         </div>
     </div>
     </div>
-
         <div class="content content-${blog.slug}">
         <h1 class="single-post-title-sm-scr">${blog.title.rendered}</h1>
-        
-        
         ${blog.content.rendered}
         </div>
     `
+    metaDescription.setAttribute("name", "description")
+    metaDescription.setAttribute("content", `${blog.excerpt.rendered}`)
     modal.innerHTML += `<img src="${image.source_url}" alt="${image.alt_text}" class="modal-img modal-img-${blog.slug}">`
+    console.log(metaDescription)
     }
 
     contentToPage.innerHTML += newDiv;
@@ -72,6 +72,8 @@ modal.addEventListener("click", ()=>{
     modal.style.display = "none"
     body.classList.remove("overflow-hidden")
 })
+
+
 
 
 
