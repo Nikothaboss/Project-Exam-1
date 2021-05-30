@@ -8,7 +8,7 @@ const url = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts/${id}?_embed=true`
 const contentToPage = document.querySelector(".single-blog-container");
 const modal = document.querySelector(".modal");
 const loading =  document.querySelector(".loading");
-const metaDescription = document.querySelector(".meta-description")
+const metaDescription = document.querySelector(".meta-description");
 // const body = document.querySelector("body") <-- Body er hentet i hamburgerMenu.js så trenger ikke hente den på nytt
 
 
@@ -19,14 +19,13 @@ fetch(url, {
 .then(response => response.json())
 .then(data => singleBlogTemplate(data)) 
 .catch(err =>{
-    console.error(err)
+    console.error(err);
 }) 
-.finally(()=>loading.style.display = "none")
+.finally(()=>loading.style.display = "none");
 
 
 
 const singleBlogTemplate =(blog)=>{
-    console.log(blog)
     document.title = "GoB" + " | " + blog.title.rendered;
     let images = blog._embedded["wp:featuredmedia"];
     let newDiv = ``;
@@ -51,26 +50,27 @@ const singleBlogTemplate =(blog)=>{
         ${blog.content.rendered}
         </div>
     `
-    metaDescription.setAttribute("content", `${blog.excerpt.rendered}`)
-    modal.innerHTML += `<img src="${image.source_url}" alt="${image.alt_text}" class="modal-img modal-img-${blog.slug}">`
-    console.log(metaDescription)
-    }
+    const description = blog.excerpt.rendered.replace("<p>", "").replace("</p>", "");
+    metaDescription.setAttribute("content", `${description.trimEnd()}`);
+    modal.innerHTML += `<img src="${image.source_url}" alt="${image.alt_text}" class="modal-img modal-img-${blog.slug}">`;
+    
+    };
 
     contentToPage.innerHTML += newDiv;
     
-}
+};
 
 const modalFunc = () =>{
     modal.style.display = "flex"
     body.classList.add("overflow-hidden")
     document.documentElement.scrollTop = 0;
-}
+};
 
 modal.addEventListener("click", ()=>{
     document.body.scrollTop = 0;
-    modal.style.display = "none"
-    body.classList.remove("overflow-hidden")
-})
+    modal.style.display = "none";
+    body.classList.remove("overflow-hidden");
+});
 
 
 

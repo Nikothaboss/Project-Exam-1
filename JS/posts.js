@@ -1,15 +1,15 @@
 const contentToPage = document.querySelector(".posts-container");
-const viewMoreBtn = document.querySelector(".view-more")
-const sortNameDes = document.querySelector(".sort-A-Z")
-const sortNameAsc = document.querySelector(".sort-Z-A")
-const loading = document.querySelector(".loading")
+const viewMoreBtn = document.querySelector(".view-more");
+const sortNameDes = document.querySelector(".sort-A-Z");
+const sortNameAsc = document.querySelector(".sort-Z-A");
+const loading = document.querySelector(".loading");
 
 
 let numOfPosts = 8;
-let url = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts?_embed=true&per_page=8`
-let viewMoreUrl = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts?_embed=true&per_page=4&offset=${numOfPosts}`
-let twelvePostsUrl = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts?_embed=true&per_page=12`
-document.title = "Exam | Nikolai"
+let url = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts?_embed=true&per_page=8`;
+let viewMoreUrl = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts?_embed=true&per_page=4&offset=${numOfPosts}`;
+let twelvePostsUrl = `https://nikolaireedlarsen.no/wp-json/wp/v2/posts?_embed=true&per_page=12`;
+document.title = "Exam | Nikolai";
 
 const fetchData = (queryString, funcToRun, param = "") =>{
     fetch(queryString, {
@@ -18,24 +18,24 @@ const fetchData = (queryString, funcToRun, param = "") =>{
     .then(response => response.json())
     .then(data => funcToRun(data, param)) 
     .catch(err =>{
-        console.error(err)
+        console.error(err);
     }) 
-    .finally(()=>loading.style.display = "none")
-}
+    .finally(()=>loading.style.display = "none");
+};
 
 // ! Booleans som endrer funksjonen til default template
-let delPrevContent = false
-let sort = false
+let delPrevContent = false;
+let sort = false;
 
 // ! States
-let isSortedAZ = false
-let isSortedZA = false
-let viewMoreClicked = false
+let isSortedAZ = false;
+let isSortedZA = false;
+let viewMoreClicked = false;
 
 // ! Default template
 const standardTemplate=(posts, sortBy)=>{
-    if(delPrevContent === true){contentToPage.innerHTML = ""}
-    if(sort === true){posts.sort(sortBy)}
+    if(delPrevContent === true){contentToPage.innerHTML = ""};
+    if(sort === true){posts.sort(sortBy)};
     for(post of posts){
         let newDiv = ``;
         let media = post._embedded["wp:featuredmedia"];
@@ -56,32 +56,32 @@ const standardTemplate=(posts, sortBy)=>{
                     </div>
                 </div>
             </div>
-        `
+        `;
             contentToPage.innerHTML += newDiv;
         }  
     }
-}
-fetchData(url, standardTemplate)
+};
+fetchData(url, standardTemplate);
 
 
 
 //  ! Sorterings events
 sortNameAsc.addEventListener("click", () =>{
-    sort = true
-    isSortedZA = true
-    isSortedAZ = false
-    delPrevContent = true
+    sort = true;
+    isSortedZA = true;
+    isSortedAZ = false;
+    delPrevContent = true;
     
    
 
     if(viewMoreClicked === true){
-        fetchData(twelvePostsUrl, standardTemplate, sortByNameZA)
+        fetchData(twelvePostsUrl, standardTemplate, sortByNameZA);
     }else{
-        fetchData(url, standardTemplate, sortByNameZA)
+        fetchData(url, standardTemplate, sortByNameZA);
     }
 
     }
-)
+);
 
 sortNameDes.addEventListener("click", ()=>{
     sort = true;
@@ -91,11 +91,11 @@ sortNameDes.addEventListener("click", ()=>{
     
 
     if(viewMoreClicked === true){
-        fetchData(twelvePostsUrl, standardTemplate, sortByName)
+        fetchData(twelvePostsUrl, standardTemplate, sortByName);
     }else{
-        fetchData(url, standardTemplate, sortByName)
+        fetchData(url, standardTemplate, sortByName);
     }
-})
+});
 
 
 // ! View More
@@ -108,36 +108,36 @@ viewMoreBtn.addEventListener("click", () =>{
 
     // ? View more når man han sortert A-Z
     if(isSortedAZ === true){
-        delPrevContent = true
-        fetchData(twelvePostsUrl, standardTemplate, sortByName)
+        delPrevContent = true;
+        fetchData(twelvePostsUrl, standardTemplate, sortByName);
     }
 
     // ? View more når man han sortert Z-A
     if(isSortedZA === true){
-        delPrevContent = true
-        fetchData(twelvePostsUrl, standardTemplate, sortByNameZA)
+        delPrevContent = true;
+        fetchData(twelvePostsUrl, standardTemplate, sortByNameZA);
     }
     
     // ? Gjemmer view more knappen når det ikke er flere posts å hente
     if(numOfPosts >= 12){
-        viewMoreBtn.style.display = "none"
+        viewMoreBtn.style.display = "none";
     }
-})
+});
 
 
 // ! Sorteringsfunksjoner
 const sortByName =(a,b)=>{
-    var name1 = a.title.rendered.toUpperCase()
-    var name2 = b.title.rendered.toUpperCase()
+    var name1 = a.title.rendered.toUpperCase();
+    var name2 = b.title.rendered.toUpperCase();
     if(name1 < name2) return -1;
     if(name1 > name2) return 1;
     else return 0;
-}
+};
 
 const sortByNameZA =(a,b)=>{
-    var name1 = a.title.rendered.toUpperCase()
-    var name2 = b.title.rendered.toUpperCase()
+    var name1 = a.title.rendered.toUpperCase();
+    var name2 = b.title.rendered.toUpperCase();
     if(name1 < name2) return 1;
     if(name1 > name2) return -1;
     else return 0;
-}
+};
